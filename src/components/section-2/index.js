@@ -48,8 +48,8 @@ const SectionSecond = () => {
             <tr>
               <th className="time-th">Time</th>
               <th className="bet-th">Bet</th>
-              <th>Multiplier</th>
-              <th>Profit</th>
+              <th className="multiplier-th">Multiplier</th>
+              <th className="profit-th">Profit</th>
             </tr>
           </thead>
           <tbody>
