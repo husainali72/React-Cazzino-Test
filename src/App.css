@@ -1,0 +1,170 @@
+/* ============================================= */
+body{height:100vh; width: 100%;overflow-x: hidden;overflow-y: hidden;font-family: 'Roboto', sans-serif;background-color: rgba(0,0,0,0.75);}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button {-webkit-appearance: none;margin: 0;}
+
+/* ====================Header========================= */
+.header{display: flex;justify-content: space-between;align-items:center; height: 40px;background-color: #5DA5ED;padding: 5px 30px;}
+.logo{color: #ffffff; font-weight: bold; letter-spacing: 1px;font-size: 18px;}
+.user-icon{width:30px;height:30px;background-color: #fff;border-radius: 100%;}
+
+/* ====================Main Wrapper================== */
+.main-wrapper{height: calc(100vh - 50px);background-color: #292929;overflow-y: auto;}
+.innner-wrapper{max-width: 1280px;margin:50px auto;display: flex;justify-content: space-between;}
+
+/* ====================Column================== */
+.column{background-color: #525252;border-radius: 15px;display: flex;justify-content: center;align-items:center;flex-direction: column;padding: 25px;min-height: 600px;}
+.column-small{width:21%}
+.column-big{width:40%}
+
+/* ====================Section 2 Table================== */
+.table{width: 100%;border-radius: 10px;  overflow: hidden;}
+.table, th, td {border-collapse: collapse;}
+.table thead tr{background-color: #275789;border-radius: 10px 10px 0 0;height:34px}
+.table thead th{color:#7D9CC6;font-size: 14px;text-transform: uppercase;text-align: left;}
+.table .no-data{text-align: center;color:#eee;font-weight: bold;}
+.table tbody {display: block;height: 460px;overflow-y: auto;font-size: 12px;background-color: #133252;}
+.table thead,tbody tr {display: table;width: 100%;table-layout: fixed;}
+.table .table-rows{height: 40px;animation: fadeTrAnimation 1s;}
+.table .table-rows td{color:#FFFFFF;letter-spacing: 1px;}
+.table .time-td{opacity: .7;}
+.table .profit-td, .bet-td, .multiplier-td{font-weight: 600;}
+.table .profit-td .plus{color:#73FC7F}
+.table .profit-td .minus{color:#FD7979}
+.table .bitcoin-icon{margin-right: 3px;}
+.table tbody tr .time-td {padding: 0 30px;}
+.table thead th:first-child {padding: 0 30px;}
+.table tr:first-child td {padding-top: 30px; padding-bottom: 12px;}
+.table tr:last-child td {padding-bottom: 45px; padding-top: 12px;}
+.table td > * {vertical-align : middle;}
+.table td div{display: inline-flex;}
+.fade-enter div {overflow-y: hidden;max-height: 0;}
+.fade-enter-active div {max-height: 40px;transition: all 500ms ease-in;}
+.fade-exit div {max-height: 40px;}
+.fade-exit-active div {max-height: 0;overflow-y: hidden;transition: all 500ms ease-in;}
+.time-th, .time-td{width:40%}
+@keyframes fadeTrAnimation {
+  from {opacity: 0;transform: translateY(-20%);}
+  to {opacity: 1;transform: translateY(0)}
+}
+
+/* ====================Section 3================== */
+.clamp-outer{position: relative;cursor: pointer;}
+.clamp{transition: all .8s ease-in-out}
+.clamp-down{width:100%}
+.clamp-up{width:65%;position: absolute;top:62%;left:50%;transform: translateX(-50%) translateY(-50%);}
+.clamp-outer:hover .clamp-up{transform: scale(.99) translateX(-50.5%) translateY(-80%) rotateX(45deg);}
+
+/* ====================Modal================== */
+.modal-wrapper{position: fixed;top:0; bottom:0;left:0;right:0;background-color: rgba(0,0,0,0.75);transition: all 500ms ease-in;}
+.modal-body{position: absolute;top:50%;left:50%;transform: translateX(-50%) translateY(-50%);width:600px; min-height: 300px;background-color: rgba(45, 69, 96, 1);animation: fadeModalAnimation .8s;}
+.modal-header{display: flex;justify-content: space-between;padding:10px;background-color: rgba(17, 51, 82, 1);align-items: center;}
+.modal-header h5{margin:0;color:#fff;text-transform: uppercase;letter-spacing: 1px;font-size: 22px;}
+.modal-header .modal-close{color:#fff;font-weight: bold;padding:2px;cursor: pointer;}
+.modal-text{padding:15px;color:#fff}
+.modalfade-enter div {overflow-y: hidden;}
+.modalfade-enter-active div {transition: all 500ms ease-in;}
+.modalfade-exit-active div {overflow-y: hidden;transition: all 500ms ease-in;}
+@keyframes fadeModalAnimation {
+  from {top: 10%;opacity: .4;}
+  to {top: 50%;opacity: 1;}
+}
+
+/* ====================Input With Icon================== */
+.input-container {display: -ms-flexbox;display: flex;width: 100%;margin-bottom: 15px;align-items: center;height:35px;position: relative;}
+.input-container .icon {padding: 10px;background: rgba(39, 94, 154, 1);color: white;min-width: 20px;text-align: center;font-size: 12px;line-height: 30px;height: 26px;}
+.input-container .icon:last-child{border-radius: 0 8px 8px 0;border-left:.5px solid rgb(100, 100, 100)}
+.input-container .input-field {width: 100%;outline: none;background-color: rgba(10, 26, 51, 1);border:none;border-radius: 8px 0 0 8px; height:35px;font-weight: bold;letter-spacing: 1px;color:#fff;padding: 10px 10px 0px 30px;position:relative;transition: all .5s ease-in-out;border: .5px solid transparent}
+.input-container:before{position: absolute;  top:-1px;  left:10px;  content: 'BET AMOUNT';  font-size: 10px;  color:rgba(128, 162, 204, 1);  width: 100px;  height:20px;  z-index: 1;}
+.input-container:after{ z-index: 1;background: url('assets/images/bitcoin.png') no-repeat center center; background-size: 100% auto; left: 10px; pointer-events: none; position: absolute; bottom: 5px;width: 14px; height: 14px; content: '';}
+.input-container .input-field:hover{border: .5px solid #73fc7fbf;}
+.input-container .input-field:focus{background-color: #133252;border: .5px solid #73fc7fbf;}
+
+/* ====================Range Slider================== */
+.range-slider{display:inline-block;width:75px;position:relative;text-align:center;height:400px;max-height:100%;background:#6FF48D;margin-bottom:100px;margin-left:50px}
+.range-slider:before{position:absolute;top:-2em;left:.5em;content:attr(data-slider-value) "%";color:#fff;font-size:90%}
+.range-slider-thumb{position:absolute;left:0;width:70px;height:50px;background:url(assets/images/thumb.png) no-repeat;line-height:50px;color:#fff;font-size:18px;pointer-events:none;background-size:cover;cursor: pointer;padding-left: 25px;}
+.range-slider-thumb span{width: 50px;display: block;}
+.range-slider-bar{left:0;bottom:0;position:absolute;background:#FA6868;pointer-events:none;width:75px;border-radius:0}
+.range-slider input[type="range"][orient="vertical"]{position:relative;margin:0;height:100%;width:100%;display:inline-block;position:relative;writing-mode:bt-lr;-webkit-appearance:slider-vertical;opacity:0;padding: 10px;cursor: pointer;}
+.range-slider input[type="range"][orient="vertical"]::-webkit-slider-runnable-track,.range-slider input[type="range"][orient="vertical"]::-webkit-slider-thumb{-webkit-appearance:none}
+.range-slider input[type="range"][orient="vertical"]::-webkit-slider-runnable-track{border:none;background:#343440;width:8px;border-color:#343440;border-radius:10px;box-shadow:0 0 0 2px #3d3d4a}
+.theme1{background:linear-gradient(pink,deeppink)}
+.range-slider:before{content:'100';position:absolute;left:-80px;top:0;color:#fff;font-size:40px}
+.range-slider:after{content:'0';position:absolute;left:-30px;bottom:0;color:#fff;font-size:40px}
+
+/* ====================Section 3================== */
+#clamp-down .st0{fill:#FEFBF0;}
+#clamp-down .st1{fill:#13202E;}
+#clamp-down .st2{fill:#FDFDFD;}
+#clamp-down .st3{fill:#030302;}
+#clamp-down .st4{fill:#FDC03B;}
+#clamp-down .st5{fill:#EDAA25;}
+#clamp-down .st6{fill:#FCF6E0;}
+#clamp-down .st7{fill:#FEDD77;}
+#clamp-down .st8{fill:#FEEDB9;}
+#clamp-down .st9{fill:#F1842B;}
+#clamp-down .st10{fill:#0C1A29;}
+#clamp-down .st11{fill:#DD7221;}
+#clamp-down .st12{fill:#8B9299;}
+#clamp-down .st13{fill:#FE9639;}
+#clamp-down .st14{fill:#F78D31;}
+
+#clamp-up .st0{display:none;}
+#clamp-up .st1{display:inline;fill:#FEFBF0;}
+#clamp-up .st2{display:inline;fill:#13202E;}
+#clamp-up .st3{display:inline;fill:#FDFDFD;}
+#clamp-up .st4{display:inline;fill:#030302;}
+#clamp-up .st5{display:inline;fill:#FDC03B;}
+#clamp-up .st6{display:inline;fill:#EDAA25;}
+#clamp-up .st7{display:inline;fill:#FCF6E0;}
+#clamp-up .st8{display:inline;fill:#FEDD77;}
+#clamp-up .st9{display:inline;fill:#FEEDB9;}
+#clamp-up .st10{display:inline;fill:#F1842B;}
+#clamp-up .st11{display:inline;fill:#0C1A29;}
+#clamp-up .st12{display:inline;fill:#DD7221;}
+#clamp-up .st13{display:inline;fill:#8B9299;}
+#clamp-up .st14{display:inline;fill:#FE9639;}
+#clamp-up .st15{display:inline;fill:#F78D31;}
+#clamp-up .st16{fill:#FE9739;}
+#clamp-up .st17{fill:#EDAB27;}
+#clamp-up .st18{fill:#FEC13B;}
+#clamp-up .st19{fill:#F1842B;}
+#clamp-up .st20{fill:#DD7321;}
+#clamp-up .st21{fill:#FBB367;}
+#clamp-up .st22{fill:#DD7322;}
+#clamp-up .st23{fill:#FE9639;}
+#clamp-up .st24{fill:#F08329;}
+#clamp-up .st25{fill:#FE9638;}
+#clamp-up{transition: all 1s ease-in-out;transform: rotateX(20deg) translateY(50px);}
+.clamp-outer:hover #clamp-up{transform: rotateX(45deg) translateY(72px);}
+
+/* ====================Responsive================== */
+@media only screen and (max-width: 1280px){
+  .main-wrapper{padding:15px;height: calc(100vh - 80px);}
+  .innner-wrapper{width:100%; max-width:100%; margin: 0;}
+}
+
+@media only screen and (max-width: 1024px){
+  .main-wrapper{padding:25px;height: calc(100vh - 100px);}
+  .innner-wrapper{flex-wrap: wrap;}
+  .column-big{order: 1;width:100%}
+  .column-small:first-child{order: 2;width:43%;margin-top: 25px;}
+  .column-small:last-child{order: 3;width:43%;margin-top: 25px;}
+}
+
+@media only screen and (max-width: 992px){
+  .column-small:first-child{width:41.5%;}
+  .column-small:last-child{width:41.5%;}
+}
+
+@media only screen and (max-width: 767px){
+  .main-wrapper{padding:15px;height: calc(100vh - 80px);}
+  .column-small:first-child{width:100%;}
+  .column-small:last-child{width:100%;}
+  .column{min-height: auto;padding: 10px;overflow: hidden;}
+  .table-wrapper{overflow-x: auto;width:100%;}
+  .table tbody tr td, .table thead th{width:120px;}
+  .table tbody tr td, .table thead th, .table tbody tr .time-td, .table thead th:first-child {padding-left: 10px;padding-right: 4px;}
+  .modal-body{width: 90%}
+  .range-slider{margin-top: 75px;margin-bottom: 75px;}
+}
